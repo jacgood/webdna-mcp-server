@@ -1,0 +1,60 @@
+
+[2025-05-15T01:05:23.427Z] Starting WebDNA MCP server
+Current directory: /home/jacobgood/Projects/webdna-mcp-server
+Script directory: /home/jacobgood/Projects/webdna-mcp-server
+
+[2025-05-15T01:05:23.432Z] Wrapper script ready
+[ERROR] node:internal/modules/cjs/loader:1408
+  throw err;
+  ^
+
+Error: Cannot find module 'uuid'
+Require stack:
+- /home/jacobgood/Projects/webdna-mcp-server/mcp-stdin-server.js
+    at Module._resolveFilename (node:internal/modules/cjs/loader:1405:15)
+    at defaultResolveImpl (node:internal/modules/cjs/loader:1061:19)
+    at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1066:22)
+    at Module._load (node:internal/modules/cjs/loader:1215:37)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:235:24)
+    at Module.require (node:internal/modules/cjs/loader:1491:12)
+    at require (node:internal/modules/helpers:135:16)
+    at Object.<anonymous> (/home/jacobgood/Projects/webdna-mcp-server/mcp-stdin-server.js:9:24)
+    at Module._compile (node:internal/modules/cjs/loader:1734:14) {
+  code: 'MODULE_NOT_FOUND',
+  requireStack: [ '/home/jacobgood/Projects/webdna-mcp-server/mcp-stdin-server.js' ]
+}
+
+Node.js v24.0.1
+
+[2025-05-15T01:05:23.463Z] Server exited with code 1
+
+[2025-05-15T01:05:33.945Z] Starting WebDNA MCP server
+Current directory: /home/jacobgood/Projects/webdna-mcp-server
+Script directory: /home/jacobgood/Projects/webdna-mcp-server
+
+[2025-05-15T01:05:33.949Z] Wrapper script ready
+[ERROR] [2025-05-15T01:05:33.979Z] WebDNA MCP Server (stdin/stdout) starting...
+[ERROR] [2025-05-15T01:05:33.980Z] WebDNA MCP Server (stdin/stdout) ready
+{"type":"ping","id":"7a803a43-4692-4bb1-8d12-8b3c89859592"}
+{"type":"ping","id":"e4305efd-7446-4545-be1c-546d631fa8d5"}
+{"type":"ping","id":"506af080-3168-45a6-9593-976d9ccb1bb8"}
+{"type":"ping","id":"84d61b2d-138f-4fa9-8235-7035263a5b1e"}
+{"type":"ping","id":"3b67c82f-c68b-4ed3-b09c-e126e780cb49"}
+{"type":"ping","id":"72f8701b-e819-4bd1-8c65-239aa7abfaea"}
+{"type":"ping","id":"4a37e3dd-2ba5-469f-b02b-927d56db8f39"}
+{"type":"ping","id":"008f46bb-0dfa-41d5-b2ca-1de6a1cf23c8"}
+{"type":"ping","id":"8c89e28e-98ac-4bc4-9cc2-10ebcc4b221e"}
+{"type":"ping","id":"945e206a-fc60-4c68-8153-13f5b41d327e"}
+{"type":"ping","id":"0f9c3b04-959b-494d-9675-c833131c7e04"}
+{"type":"ping","id":"bb78e054-5128-4818-a6ba-06ba7300377a"}
+{"type":"ping","id":"166816cd-a0b0-4ce4-b1b0-36e723f30b68"}
+{"type":"ping","id":"d2e7fb87-a5ba-45d8-a183-7862f1bdbdfa"}
+{"type":"ping","id":"7cce5049-4899-4084-940e-4ff738bfd250"}
+{"type":"ping","id":"109676bd-2e80-420c-9aba-cd1af9d3c92a"}
+{"type":"ping","id":"5565b863-383f-45a2-8470-6977d2ab99c9"}
+{"type":"ping","id":"1a88485a-6d80-4290-8fdd-7f8dbc2bc46b"}
+{"type":"ping","id":"d7cd5b7e-a3a0-456a-b4e3-658368b8498c"}
+{"type":"ping","id":"1363feec-73d4-46ff-87c5-7eb011a9f0e1"}
+{"type":"ping","id":"9764373c-e0a1-4247-811d-c26f6475fb46"}
+{"type":"ping","id":"369a1387-525e-4529-9a90-0220308957da"}
