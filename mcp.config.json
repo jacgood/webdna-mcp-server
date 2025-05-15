@@ -1,0 +1,9 @@
+{
+  "name": "webdna-mcp-server",
+  "description": "Custom MCP server for WebDNA documentation (stdin/stdout mode)",
+  "entrypoint": "node mcp-stdin-server.js",
+  "tools": "src/mcp-tools.js",
+  "version": "1.0.0",
+  "author": "",
+  "schema_version": "1.0"
+}
