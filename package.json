@@ -7,6 +7,13 @@
     "start": "node src/index.js",
     "scrape": "node src/scraper.js",
     "dev": "nodemon src/index.js",
+    "start:mcp": "node mcp-stdin-server.js",
+    "start:mcp-http": "node mcp-http-server.js",
+    "docker:build": "docker build -t webdna-mcp-server .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env webdna-mcp-server",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

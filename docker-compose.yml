@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  webdna-mcp:
+    build: .
+    container_name: webdna-mcp-server
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - PORT=3000
+    ports:
+      - "3002:3000"
+    volumes:
+      - ./mcp-server.log:/app/mcp-server.log
+    restart: unless-stopped
+    command: node mcp-http-server.js

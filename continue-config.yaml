@@ -1,0 +1,22 @@
+# WebDNA MCP Server Configuration for continue.dev
+# Place this in C:\Users\jgood\.continue\config.yaml
+
+# Include your existing models
+models:
+  - name: GPT-4o
+    provider: openai
+    model: gpt-4o
+
+# Configure the HTTP MCP server
+mcpServers:
+  - name: WebDNA Documentation
+    command: curl
+    args:
+      - -X
+      - POST
+      - http://localhost:3002/mcp/invoke_tool
+      - -H
+      - 'Content-Type: application/json'
+      - -d
+      - |
+        {"tool": "$0", "params": $1}
