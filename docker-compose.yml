@@ -1,16 +1,30 @@
-version: '3'
+version: '3.8'
 
 services:
   webdna-mcp:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: webdna-mcp-server
     environment:
       - SUPABASE_URL=${SUPABASE_URL}
       - SUPABASE_KEY=${SUPABASE_KEY}
       - PORT=3000
+      - NODE_ENV=production
     ports:
       - "3002:3000"
     volumes:
-      - ./mcp-server.log:/app/mcp-server.log
+      - ./logs:/app/logs
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
     command: node mcp-http-server.js

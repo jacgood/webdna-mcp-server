@@ -1,9 +1,26 @@
 {
   "name": "webdna-mcp-server",
-  "description": "Custom MCP server for WebDNA documentation (stdin/stdout mode)",
-  "entrypoint": "node mcp-stdin-server.js",
+  "description": "State-of-the-art MCP server for WebDNA documentation",
+  "entrypoint": "node start-mcp.js",
   "tools": "src/mcp-tools.js",
-  "version": "1.0.0",
-  "author": "",
-  "schema_version": "1.0"
+  "version": "1.1.0",
+  "author": "WebDNA Documentation Team",
+  "schema_version": "1.0",
+  "capabilities": {
+    "stdin_stdout": true,
+    "http": true,
+    "search": true,
+    "documentation": true,
+    "structured_data": true
+  },
+  "http": {
+    "port": 3000,
+    "endpoint": "/mcp/invoke_tool",
+    "methods": ["POST"]
+  },
+  "documentation_url": "https://docs.webdna.us/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/webdna-mcp-server"
+  }
 }

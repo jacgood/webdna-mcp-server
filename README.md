@@ -1,16 +1,17 @@
 # WebDNA MCP Server
 
-A custom Model Context Protocol (MCP) server for WebDNA documentation. This server scrapes and indexes WebDNA documentation from [docs.webdna.us](https://docs.webdna.us/) and provides API endpoints for searching and retrieving documentation.
+A state-of-the-art Model Context Protocol (MCP) server for WebDNA documentation. This server scrapes and indexes WebDNA documentation from [docs.webdna.us](https://docs.webdna.us/) and provides API endpoints for searching and retrieving documentation.
 
 ## Features
 
-- Scrapes and indexes WebDNA documentation
-- Provides MCP-compatible API endpoints for integration with AI assistants
-- Full-text search for WebDNA instructions and contexts
-- Categorized documentation browsing
-- Supabase PostgreSQL database for storage and retrieval
-- Docker support for easy deployment
-
+- **High-Performance Documentation Access**: Efficient caching and retrieval of WebDNA documentation
+- **Advanced Search Capabilities**: Full-text search with relevance scoring for WebDNA instructions
+- **Dual Protocol Support**: Works with both stdin/stdout (for AI assistants) and HTTP interfaces
+- **Comprehensive MCP Tools**: Rich set of tools for exploring the WebDNA framework
+- **Robust Error Handling**: Graceful error recovery and detailed logging
+- **Optimized Database Layer**: Efficient Supabase PostgreSQL queries with caching
+- **Containerized Deployment**: Docker support with health checks and security best practices
+- **Low Resource Utilization**: Optimized for cloud deployment with minimal resource footprint
 ## Getting Started
 
 ### Prerequisites
@@ -18,26 +19,15 @@ A custom Model Context Protocol (MCP) server for WebDNA documentation. This serv
 - Docker and Docker Compose
 - Supabase account and project
 
-### Installation with Docker
+### Installation with Docker (Recommended)
 
 1. Clone the repository
-2. Set up your environment variables:
+2. Run the setup script:
 ```bash
-cp .env.example .env
-# Edit .env with your Supabase URL and API key
-```
-
-3. Start the Docker container:
-```bash
-# Using the setup script
 chmod +x setup-docker.sh
 ./setup-docker.sh
-
-# Or manually with npm scripts
-npm run docker:up
 ```
-
-4. The MCP server will be available at http://localhost:3000
+3. The MCP server will be available at http://localhost:3002
 
 ### Manual Installation
 
@@ -59,9 +49,12 @@ npm run scrape
 ```
 
 4. Start the server:
-
 ```bash
-npm start
+# For HTTP server
+npm run start:mcp-http
+
+# For stdin/stdout server (for AI assistants)
+npm run start:mcp
 ```
 
 ## Using with Continue.dev
@@ -75,7 +68,7 @@ mcpServers:
     args:
       - -X
       - POST
-      - http://localhost:3000/mcp/invoke_tool
+      - http://localhost:3002/mcp/invoke_tool
       - -H
       - 'Content-Type: application/json'
       - -d
@@ -88,29 +81,41 @@ mcpServers:
 
 ## MCP Tools
 
-This server provides the following MCP tools:
+This server provides the following enhanced MCP tools:
 
 ### search-webdna-docs
 
-Searches WebDNA documentation for specific instructions, contexts, or keywords.
-
+Searches WebDNA documentation with advanced filtering and relevance scoring.
 **Parameters:**
-- `query` (string): The search query for WebDNA documentation
+- `query` (string, required): Search query for WebDNA documentation
+- `category` (string, optional): Filter results by category
+- `limit` (number, optional): Maximum results to return (default: 20)
+- `offset` (number, optional): Offset for pagination (default: 0)
 
 ### get-webdna-doc
 
-Retrieves detailed documentation for a specific WebDNA instruction or context by its ID.
+Retrieves detailed documentation for a specific WebDNA instruction or context.
 
 **Parameters:**
-- `id` (string): The ID of the WebDNA instruction or context
-
+- `id` (string, required): ID, WebDNA ID, or instruction name
 ### get-webdna-categories
 
-Retrieves all WebDNA documentation categories with the count of instructions in each category.
+Retrieves all WebDNA documentation categories with counts of instructions.
 
-## API Endpoints (HTTP Server)
+### get-random-webdna-docs
+
+Retrieves random WebDNA documentation entries for exploration.
+
+**Parameters:**
+- `limit` (number, optional): Number of entries to return (default: 5)
+
+### get-webdna-stats
+
+Retrieves statistics about the WebDNA documentation database.
+## API Endpoints
 
 - `GET /health`: Health check endpoint
+- `GET /`: API documentation and information
 - `POST /mcp/init`: Initialize the MCP server
 - `POST /mcp/list_tools`: Get available tools
 - `POST /mcp/invoke_tool`: Invoke a tool with parameters
@@ -131,3 +136,4 @@ ISC
 
 - [WebDNA Documentation](https://docs.webdna.us/)
 - [Model Context Protocol (MCP)](https://github.com/anthropics/model-context-protocol)
+- [Supabase](https://supabase.com/) for database infrastructure
